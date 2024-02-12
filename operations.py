@@ -11,8 +11,8 @@ def add_backward(a, b, gradient):
 
 
 def sub_forward(a, b):
-    # TODO
-    raise NotImplementedError()
+    return a.data - b.data
+   
 
 
 def sub_backward(a, b, gradient):
