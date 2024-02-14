@@ -30,8 +30,7 @@ def mul_backward(a, b, gradient):
 
 
 def div_forward(a, b):
-    # TODO
-    raise NotImplementedError()
+    return a.data / b.data
 
 
 def div_backward(a, b, gradient):
