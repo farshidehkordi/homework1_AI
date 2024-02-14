@@ -16,8 +16,8 @@ def sub_forward(a, b):
 
 
 def sub_backward(a, b, gradient):
-    # TODO
-    raise NotImplementedError()
+   a.grad -= gradient
+    b.grad -= gradient
 
 
 def mul_forward(a, b):
@@ -25,8 +25,8 @@ def mul_forward(a, b):
 
 
 def mul_backward(a, b, gradient):
-    # TODO
-    raise NotImplementedError()
+    a.grad *= gradient
+    b.grad *= gradient
 
 
 def div_forward(a, b):
@@ -34,8 +34,8 @@ def div_forward(a, b):
 
 
 def div_backward(a, b, gradient):
-    # TODO
-    raise NotImplementedError()
+    a.grad /= gradient
+    b.grad /= gradient
 
 
 def matmul_forward(a, b):
@@ -48,8 +48,7 @@ def matmul_backward(a, b, gradient):
 
 
 def relu_forward(a):
-    # TODO
-    raise NotImplementedError()
+     return max(0, a)
 
 
 def relu_backward(a, gradient):
