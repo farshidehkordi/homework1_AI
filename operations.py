@@ -21,8 +21,7 @@ def sub_backward(a, b, gradient):
 
 
 def mul_forward(a, b):
-    # TODO
-    raise NotImplementedError()
+   return a.data * b.data
 
 
 def mul_backward(a, b, gradient):
