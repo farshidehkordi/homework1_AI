@@ -57,8 +57,8 @@ def relu_backward(a, gradient):
 
 
 def sigmoid_forward(a):
-    # TODO
-    raise NotImplementedError()
+   return 1 / (1 + np.exp(-a.data))
+
 
 
 def sigmoid_backward(a, gradient):
@@ -67,8 +67,7 @@ def sigmoid_backward(a, gradient):
 
 
 def log_forward(a):
-    # TODO
-    raise NotImplementedError()
+     return np.log(a.data)
 
 
 def log_backward(a, gradient):
