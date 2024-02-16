@@ -34,8 +34,8 @@ def div_forward(a, b):
 
 
 def div_backward(a, b, gradient):
-    a.grad /= gradient
-    b.grad /= gradient
+    a.grad += gradient / b.data
+    b.grad += -gradient * a.data / (b.data ** 2)
 
 
 def matmul_forward(a, b):
@@ -43,8 +43,8 @@ def matmul_forward(a, b):
 
 
 def matmul_backward(a, b, gradient):
-    # TODO
-    raise NotImplementedError()
+    a.grad += gradient @ b.data.T
+    b.grad += a.data.T @ gradient
 
 
 def relu_forward(a):
@@ -52,9 +52,7 @@ def relu_forward(a):
 
 
 def relu_backward(a, gradient):
-    # TODO
-    raise NotImplementedError()
-
+   a.grad += gradient * (a.data > 0)
 
 def sigmoid_forward(a):
    return 1 / (1 + np.exp(-a.data))
@@ -62,8 +60,7 @@ def sigmoid_forward(a):
 
 
 def sigmoid_backward(a, gradient):
-    # TODO
-    raise NotImplementedError()
+   a.grad += gradient * (a.data * (1 - a.data))
 
 
 def log_forward(a):
@@ -71,8 +68,7 @@ def log_forward(a):
 
 
 def log_backward(a, gradient):
-    # TODO
-    raise NotImplementedError()
+   a.grad += gradient / a.data
 
 
 def nll_forward(scores, label):
