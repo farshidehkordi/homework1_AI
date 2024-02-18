@@ -51,8 +51,10 @@ def relu_forward(a):
      return max(0, a)
 
 
+
 def relu_backward(a, gradient):
-   a.grad += gradient * (a.data > 0)
+    a.grad += gradient * (a.data > 0).astype(gradient.dtype)
+
 
 def sigmoid_forward(a):
    return 1 / (1 + np.exp(-a.data))
